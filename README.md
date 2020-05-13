@@ -16,6 +16,7 @@ This is where **ColdBoot** comes to help.
 
  
 
+
 #### What is ColdBoot?
 
 ColdBoot is a pre-compiled firmware for ESP8266 or ESP32 microcontroller that is capable of quickly collecting:
@@ -31,7 +32,8 @@ from the end-user via a simple web-form.
 ColdBoot provides step-by-step instructions via terminal window connected to USB or Serial port 
 (115200 bps setting)
 
- 
+
+
 
 #### How to use:
 
