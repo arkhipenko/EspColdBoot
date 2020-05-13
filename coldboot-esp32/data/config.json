@@ -1,0 +1,5 @@
+{
+  "Title"    : "My Amazing IoT device",
+  "Config"   : "http://ota.home.lan/esp/config/",
+  "fields"   : "2"
+}
