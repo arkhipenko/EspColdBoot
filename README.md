@@ -2,7 +2,7 @@
 
 ### Flexible ESP8266 and ESP32 initial device provisioning
 
-
+ 
 
 #### Background
 
@@ -14,7 +14,7 @@ The device would not know the WiFi parameters and its firmware may be outdated.
 
 This is where **ColdBoot** comes to help. 
 
-
+ 
 
 #### What is ColdBoot?
 
@@ -31,7 +31,7 @@ from the end-user via a simple web-form.
 ColdBoot provides step-by-step instructions via terminal window connected to USB or Serial port 
 (115200 bps setting)
 
-
+ 
 
 #### How to use:
 
@@ -41,7 +41,7 @@ Option 2: Compile and upload provided sketch.
 
 Optionally: edit *data/config.json* file and upload to SPIFFS using upload tool
 
-
+ 
 
 #### Process flow
 
@@ -76,7 +76,7 @@ Configuration file provides a Title for the web-form, a URL for latest configura
 
 **Note**: To use SPIFFS configuration capability - edit the provided *data/config.json* file to your needs and upload SPIFFS image to the device using ESP8266 SPIFFS Upload Tool in the Arduino IDE. 
 
-
+ 
 
 ##### STEP 2:  CONNECT TO WIFI BASED ON SPIFFS CONFIGURATION
 
@@ -84,7 +84,7 @@ If reading configuration from the SPIFFS was successful, there is a chance an SS
 
 If SPIFFS was not available **or** *config.json* file was not available, the step 2 is skipped. 
 
-
+ 
 
 ##### STEP 3:  PROVISION CONFIGURATION FROM THE USER
 
@@ -95,17 +95,17 @@ As this point, device creates a WiFi AP point and creates a simple web-form in o
 
 End user needs to connect to the AP and navigate to http://10.1.1.1
 
-![Windows 10 Network Connect Example](pictures\ap.png)
+![Windows 10 Network Connect Example](https://github.com/arkhipenko/EspColdBoot/blob/master/pictures/ap.png)
 
-
+ 
 
 A full web-form would look like this:
 
-![](pictures\form.png)
+![](https://github.com/arkhipenko/EspColdBoot/blob/master/pictures/form.png)
 
 A reduced web-form based on the step 1 example *config.json* file would look like this:
 
-![](pictures\form-reduced.png)
+![](https://github.com/arkhipenko/EspColdBoot/blob/master/pictures/form-reduced.png)
 
 
 
@@ -113,7 +113,7 @@ Once user hits Submit button, device attempts to connect to WiFi again and again
 
 Device will reboot after 10 minutes of inactivity.
 
-
+  
 
 ##### STEP 4:  READ CONFIGURATION FROM HTTP SERVER
 
@@ -136,7 +136,7 @@ Alternatively, you can specify a direct file URL like:
 
 If **ColdBoot** determines that a valid URL was not provided, this step is skipped as **optional**. 
 
-
+ 
 
 ##### STEP 5: UPDATE FIRMWARE FROM AN OTA SERVER
 
@@ -160,14 +160,14 @@ Alternatively, you can specify a direct file URL like:
 ​		http://ota.home.lan/esp/bin/iotdevice.bin
 
 
-
+ 
 ##### STEP 6: REBOOT
 
 If everything goes well, step 6 should not be reached as device will reboot at the end of successful OTA update at step 5. 
 
 However, if OTA update fails, device will wait for 10 seconds and reboot.
 
-
+ 
 
 #### FOLDERS:
 
@@ -176,7 +176,7 @@ However, if OTA update fails, device will wait for 10 seconds and reboot.
 **binary** - a pre-compiled esp8266 binary (assuming 4Mb Flash size, 2Mb SPIFFS size, 1Mb OTA size) which could be flashed directly to the chip as part of the manufacturing process
 
 
-
+ 
 #### EXAMPLE:
 
 Below is a terminal output of the real device being provisioned via ColdBoot.
