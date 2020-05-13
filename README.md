@@ -1,10 +1,10 @@
 # ESP ColdBoot v1.0
 
-### Flexible ESP8266 and ESP32 initial device provisioning
+## Flexible ESP8266 and ESP32 initial device provisioning
 
  
 
-#### Background
+### Background
 
 When you deploy hundreds of devices as part of the IoT project, the question is: how to get them on customer's network and provision the latest specific firmware to the device. 
 
@@ -17,7 +17,7 @@ This is where **ColdBoot** comes to help.
  
 
 
-#### What is ColdBoot?
+### What is ColdBoot?
 
 ColdBoot is a pre-compiled firmware for ESP8266 or ESP32 microcontroller that is capable of quickly collecting:
 
@@ -35,7 +35,7 @@ ColdBoot provides step-by-step instructions via terminal window connected to USB
 
 
 
-#### How to use:
+### How to use:
 
 Option 1: Upload pre-compiled binaries directly to the chip
 
@@ -45,9 +45,9 @@ Optionally: edit *data/config.json* file and upload to SPIFFS using upload tool
 
  
 
-#### Process flow
+### Process flow
 
-##### STEP 1:  READ COFIGURATION FROM SPIFFS
+#### STEP 1:  READ COFIGURATION FROM SPIFFS
 
 ColdBoot tries to read a configuration file from the SPIFFS file system of the device. 
 
@@ -64,7 +64,7 @@ The config file is a simple JSON array and could define the following parameters
 
 All or a subset of fields could be defined. Subsequent process flow could be influenced by this file.
 
-###### An example use case: 
+##### An example use case: 
 
 Configuration file provides a Title for the web-form, a URL for latest configuration, and limits number of web-form fields to 2 (SSID and password)
 
@@ -80,7 +80,7 @@ Configuration file provides a Title for the web-form, a URL for latest configura
 
  
 
-##### STEP 2:  CONNECT TO WIFI BASED ON SPIFFS CONFIGURATION
+#### STEP 2:  CONNECT TO WIFI BASED ON SPIFFS CONFIGURATION
 
 If reading configuration from the SPIFFS was successful, there is a chance an SSID and password were provided there, so ColdBoot attempts to connect to WiFi. 
 
@@ -88,7 +88,7 @@ If SPIFFS was not available **or** *config.json* file was not available, the ste
 
  
 
-##### STEP 3:  PROVISION CONFIGURATION FROM THE USER
+#### STEP 3:  PROVISION CONFIGURATION FROM THE USER
 
 If device was able to get onto the WiFi network as part of step 2, this step is skipped. 
 
@@ -117,7 +117,7 @@ Device will reboot after 10 minutes of inactivity.
 
   
 
-##### STEP 4:  READ CONFIGURATION FROM HTTP SERVER
+#### STEP 4:  READ CONFIGURATION FROM HTTP SERVER
 
 In case a configuration URL is provided, device will attempt to read and parse configuration parameters from the http server. 
 
@@ -140,7 +140,7 @@ If **ColdBoot** determines that a valid URL was not provided, this step is skipp
 
  
 
-##### STEP 5: UPDATE FIRMWARE FROM AN OTA SERVER
+#### STEP 5: UPDATE FIRMWARE FROM AN OTA SERVER
 
 At this point ColdBoot assumes there is a valid URL to an OTA update server available. 
 
@@ -163,7 +163,7 @@ Alternatively, you can specify a direct file URL like:
 
 
  
-##### STEP 6: REBOOT
+#### STEP 6: REBOOT
 
 If everything goes well, step 6 should not be reached as device will reboot at the end of successful OTA update at step 5. 
 
@@ -171,7 +171,7 @@ However, if OTA update fails, device will wait for 10 seconds and reboot.
 
  
 
-#### FOLDERS:
+### FOLDERS:
 
 **data** - SPIFFS image to be uploaded to the device if provisioning via SPIFFS is desired. Must contain a JSON file called *config.json* in the root folder. 
 
@@ -179,7 +179,7 @@ However, if OTA update fails, device will wait for 10 seconds and reboot.
 
 
  
-#### EXAMPLE:
+### EXAMPLE:
 
 Below is a terminal output of the real device being provisioned via ColdBoot.
 
