@@ -9,7 +9,7 @@
 #define APPVER    "1.0.0"
 #define APPTOKEN  "COLDBOOT"
 #define EEPROM_MAX 4096
-#define JSONCONFIG_NOSTATIC
+#define _JSONCONFIG_NOSTATIC
 #define APPPREFIX "coldboot-"
 //#define APPPREFIX "success-"
 
